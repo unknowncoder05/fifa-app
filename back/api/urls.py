@@ -1,5 +1,7 @@
-from rest_framework import routers
-from .views import PlayersViewSet
+from django.urls import path
+from .views import PlayerList
 
-router = routers.DefaultRouter()
-router.register(r'players', PlayersViewSet)
+
+urlpatterns = [
+    path('players/', PlayerList.as_view()),
+]
