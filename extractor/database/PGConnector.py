@@ -31,5 +31,6 @@ class PGConnector:
         query = f'''INSERT INTO {self.django_app}_player 
         (name, position, nation, team)
         VALUES (%s, %s, %s, %s);'''
+        print(players)
         self.cursor.executemany(query, players)
         self.conn.commit()
