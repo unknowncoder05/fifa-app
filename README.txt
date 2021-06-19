@@ -16,6 +16,5 @@ echo "from django.contrib.auth import get_user_model; User = get_user_model(); U
 
 
 Improvements
-- database team model (updated from the api teams)
-- The extraction process uses backend api as the main way to insert elements to the DB, but this can be optimized by directly connecting to it
+- database "team" model (updated from the api teams)
 - automatic testing

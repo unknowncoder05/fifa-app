@@ -14,10 +14,11 @@ class PlayerPagination(PageNumberPagination):
     page_size_query_param = 'limit'
 
     def get_paginated_response(self, data):
+        print()
         return Response({
             'Page': self.page.number,
             'totalPages': self.page.paginator.num_pages,
-            'Items': len(self.page.paginator.object_list),
+            'Items': len(data),
             # 'links': {
             #    'next': self.get_next_link(),
             #    'previous': self.get_previous_link()
@@ -33,7 +34,14 @@ class PlayerList(APIView, PaginationHandlerMixin):
     permission_classes = [HasReadAPIKey]
 
     def get(self, request, format=None, *args, **kwargs):
-        instance = Player.objects.all()
+        if 'search' not in request.GET:
+            return Response({'detail':'search attribute is required'}, status=status.HTTP_400_BAD_REQUEST)
+        order = '-' if request.GET.get('order') == 'desc' else ''
+        instance = Player.objects.all().filter(
+            name__icontains=request.GET['search']
+        ).order_by(order+'name')
+
+        
         page = self.paginate_queryset(instance)
         if page is not None:
             serializer = self.get_paginated_response(
@@ -58,7 +66,9 @@ class TeamList(APIView, PaginationHandlerMixin):
     permission_classes = [HasReadAPIKey]
 
     def post(self, request, format=None, *args, **kwargs):
-        instance = Player.objects.all()
+        instance = Player.objects.all().filter(
+            team__iexact=request.data["Name"]
+        )
         page = self.paginate_queryset(instance)
         if page is not None:
             serializer = self.get_paginated_response(

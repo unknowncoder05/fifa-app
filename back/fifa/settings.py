@@ -115,7 +115,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
 # =============================>PROJECT SETTINGS<=============================
-ENVIRONMENT = 'TEST'  # 'DEV'
+ENVIRONMENT = 'DEV'  # 'DEV'
 INSTALLED_APPS.extend([
     'rest_framework',
     'api.apps.ApiConfig',
