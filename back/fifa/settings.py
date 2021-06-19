@@ -118,21 +118,19 @@ STATIC_ROOT = 'static'
 ENVIRONMENT = 'TEST'  # 'DEV'
 INSTALLED_APPS.extend([
     'rest_framework',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'rest_framework_api_key',
 ])
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle'
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2,
     'MAX_PAGE_SIZE': 2
 }
-
+API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
 
 if ENVIRONMENT == 'DEV':
     DATABASES = {
