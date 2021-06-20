@@ -13,12 +13,12 @@ class Home extends Component {
              hello: 'hello world' 
             };
         this.Api = new Api()
-        console.log("REQUESTING<-");
+        /*
         this.Api.searchPlayers("e","desc",1).then(
             (res) =>{
                 console.log("RES->",res); 
             }
-        )
+        )*/
         
     }
 

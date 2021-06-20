@@ -3,6 +3,25 @@ export class Api {
     api_base_url = "http://localhost:8000/api/v1"
     /*constructor() {
     }*/
+    async setKey(key){
+        sessionStorage.setItem("ApiKey", key);
+        return new Promise((resolve,reject) => {
+            this.searchPlayers("e")
+            .then(
+                (res)=>{
+                    resolve(true)
+                }
+            )
+            .catch(
+                (err) =>{
+                    reject(false)
+                }
+            )
+           
+        })
+        
+        
+    }
     searchPlayers(search,order='asc',page=1) {
         /*let params = {
             search,
@@ -13,7 +32,7 @@ export class Api {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'x-api-key': 1423,
+                'x-api-key': sessionStorage.getItem("ApiKey"),
             },
         }
         return axios.get(this.api_base_url + `/players?search=${search}&order=${order}&page=${page}`, config)
