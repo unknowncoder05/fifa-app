@@ -1,5 +1,7 @@
 from django.db import models
 from rest_framework_api_key.models import AbstractAPIKey
+from api.apikey import CustomAPIKeyManager
+
 # Create your models here.
 
 POSITIONS_CHOICES = [  # https://fifauteam.com/fifa-21-positions/
@@ -45,6 +47,7 @@ class Player(models.Model):
 
 
 class ReadAPIKey(AbstractAPIKey):
+    objects = CustomAPIKeyManager()
     class Meta(AbstractAPIKey.Meta):
         verbose_name = "Read Only API key"
         verbose_name_plural = "Read Only API keys"
