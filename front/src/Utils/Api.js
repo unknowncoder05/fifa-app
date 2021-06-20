@@ -5,6 +5,9 @@ export class Api {
     }*/
     async setKey(key){
         sessionStorage.setItem("ApiKey", key);
+        return this.testKey()
+    }
+    testKey(){
         return new Promise((resolve,reject) => {
             this.searchPlayers("e")
             .then(
@@ -17,10 +20,8 @@ export class Api {
                     reject(false)
                 }
             )
-           
+        
         })
-        
-        
     }
     searchPlayers(search,order='asc',page=1) {
         /*let params = {
@@ -46,10 +47,10 @@ export class Api {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'x-api-key': 1423,
+                'x-api-key': sessionStorage.getItem("ApiKey"),
             },
         }
-        return axios.post(this.api_base_url + `/team`, data, config)
+        return axios.post(this.api_base_url + `/team/`, data, config)
     }
 }
 export default Api;

@@ -1,43 +1,17 @@
 import React, { Component } from 'react';
-
+import PlayersPaginator from './PlayersPaginator'
 class Players extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            players:props.players,
-            team:props.team
-            };
-    }
-    players(){
-        this.state.players.map((player) =>{
-            let team = null
-            if(this.state.team){
-                team = (
-                    <tc> 
-                        {player.team}
-                    </tc>)
-            }
-            return (
-                <tr> 
-                    <tc> 
-                        {player.name}
-                    </tc>
-                    <tc> 
-                        {player.position}
-                    </tc>
-                    <tc> 
-                        {player.nation}
-                    </tc>
-                    { team }
-                    
-                </tr>
-            )
-        }
-        )
+        this.state = {};
     }
     render() {
-        return ( this.state.players );
+        return (
+                <div>
+                    <PlayersPaginator/>
+                </div>
+            );
     }
 }
 export default Players;

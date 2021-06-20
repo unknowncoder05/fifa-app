@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Alert  from 'react-bootstrap/Alert';
-import Api from './../Utils/Api'
+import Api from '../../Utils/Api'
 class AuthKey extends Component {
     constructor(props) {
         super(props);
@@ -12,11 +12,21 @@ class AuthKey extends Component {
             players:props.players,
             team:props.team,
             msg:"",
-            show:true
+            show:false
         };
         this.Api = new Api()
+        
         this.handleClose = this.handleClose.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    componentDidMount(){
+        this.Api.testKey()
+        .then((res)=>{
+            this.setState({show:false})
+        })
+        .catch((err)=>{
+            this.setState({show:true})
+        })
     }
     handleClose(){
         this.setState({show:false})
@@ -27,6 +37,7 @@ class AuthKey extends Component {
         this.Api.setKey(formDataObj.apikey)
         .then((res)=>{
             this.setState({show:false})
+            window.location.reload()
         })
         .catch((err)=>{
             this.setState({error:true})

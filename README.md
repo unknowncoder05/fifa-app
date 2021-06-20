@@ -1,4 +1,4 @@
-#Backend Api
+# Backend
 ## Launch
 
 
@@ -26,3 +26,15 @@ Improvements
 - database "team" model (updated from the api teams)
 - automatic testing
 - Clean custom apikey generation 
+
+
+# Frontend
+
+## Launch
+```sh
+npm start
+```
+
+Improvements
+- catch players image url and show it
+- current apikey based login should be changed for a real app
