@@ -120,6 +120,7 @@ INSTALLED_APPS.extend([
     'rest_framework',
     'api.apps.ApiConfig',
     'rest_framework_api_key',
+    'corsheaders'
 ])
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
@@ -132,6 +133,26 @@ REST_FRAMEWORK = {
 }
 API_KEY_CUSTOM_HEADER = "HTTP_X_API_KEY"
 
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', 
+    'django.middleware.common.CommonMiddleware'
+] +MIDDLEWARE
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'x-api-key',
+]
 if ENVIRONMENT == 'DEV':
     DATABASES = {
         'default': {

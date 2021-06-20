@@ -3,3 +3,5 @@ djangorestframework
 psycopg2-binary
 django-environ
 djangorestframework-api-key==2.*
+django-dotenv
+django-cors-headers
