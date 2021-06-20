@@ -1,7 +1,6 @@
 import './App.css';
-import Players from './components/Players'
-import Teams from './components/Teams'
-import Home from './components/Home'
+import Players from './components/pages/Players'
+import Teams from './components/pages/Teams'
 import AuthKey from './components/layout/AuthKey'
 import Header from './components/layout/Header'
 
@@ -23,11 +22,11 @@ function App() {
         <Route path="/players">
           <Players />
         </Route>
-        <Route path="/team">
+        <Route path="/teams">
           <Teams />
         </Route>
         <Route path="/">
-          <Home />
+          <Players />
         </Route>
       </Switch>
     </Router>

@@ -139,7 +139,8 @@ MIDDLEWARE = [
 ] +MIDDLEWARE
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'http://192.168.1.60:3000'
 ]
 CORS_ALLOW_HEADERS = [
     'accept',

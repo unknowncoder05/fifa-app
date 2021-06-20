@@ -1,6 +1,7 @@
+import './../../App.css'
 import React, { Component } from 'react';
 //import { Players } from './Players'
-import TeamPaginator from './TeamPaginator'
+import TeamPaginator from '../paginators/TeamPaginator'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
