@@ -19,6 +19,9 @@ function App() {
     <Router>
       <Header />
       <AuthKey />
+      <div className="bannerBack">
+        <img className="banner" src="https://www.volkgames.com/wp-content/uploads/2021/01/fifa-21-banner_Mesa-de-trabajo-1-scaled.jpg"></img>
+      </div>
       <Switch>
         <Route path="/players">
           <Players />

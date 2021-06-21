@@ -59,9 +59,6 @@ class AuthKey extends Component {
         return (
             <div>
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Authenticate!</Modal.Title>
-                    </Modal.Header>
                     <Modal.Body>
                     {error}
                         This aplication is protected using Api Keys, if you don't have one, ask the Admin!
@@ -71,7 +68,7 @@ class AuthKey extends Component {
                                 <Form.Text className="text-muted">
                                 </Form.Text>
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button variant="outline-success" type="submit" >
                                 Login
                             </Button>
                         </Form>

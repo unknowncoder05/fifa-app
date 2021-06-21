@@ -9,8 +9,9 @@ class Players extends Component {
     }
     render() {
         return (
-                <div>
-                    <h1>This are all the players in FIFA 21</h1>
+                <div className="page">
+                    <h1 className="titleTexts">This are all the players in FIFA 21</h1>
+                    <br></br>
                     <PlayersPaginator/>
                 </div>
             );

@@ -12,9 +12,9 @@ class Header extends Component {
     
     render() {
         return (
-            <Navbar bg="light" expand="lg" className="test">
+            <Navbar expand="lg" variant="dark" className="blueBackground" >
                 <Container>
-                    <Navbar.Brand href="home">FIFA APP</Navbar.Brand>
+                    <Navbar.Brand href="home"><img className="eaLogo" src="https://www.fifplay.com/img/public/fifa-21-logo-white.png"></img></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

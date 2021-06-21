@@ -23,7 +23,8 @@ class Teams extends Component {
     };
     render() {
         return (
-                <div>
+                <div  className="page">
+                    <h1 className="titleTexts">Search for a team in FIFA 21</h1>
                     <Form className="d-flex" onSubmit={this.handleSubmit}>
                         <FormControl
                             type="search"
@@ -31,9 +32,11 @@ class Teams extends Component {
                             placeholder="Search"
                             className="mr-2"
                             aria-label="Search"
+                            style={{width:"60%"}}
                         />
                         <Button variant="outline-success" type="submit">Search</Button>
                     </Form>
+                    <br></br>
                     <TeamPaginator team={this.state.team}/>
                 </div>
             );

@@ -71,10 +71,10 @@ class TeamPaginator extends Component {
                 <Player key={player.name} player={player}/>
         )
         if(this.state.items !== 0){
-            queryAmountMsg = <h3>{this.state.items} Players found</h3>
+            queryAmountMsg = <h3 className="descriptive">{this.state.items} Players found</h3>
         }
         else{
-            queryAmountMsg = <h3>No Player was found, try an other team</h3>
+            queryAmountMsg = <h3 className="descriptive">No Player was found, try an other team</h3>
         }
         return (
             <>
@@ -93,7 +93,7 @@ class TeamPaginator extends Component {
             return ""
         return (
             <div>
-                <Pagination>
+                <Pagination className="blueBackground">
                     <Pagination.First onClick = {() => this.changePage(1)}/>
                     <Pagination.Prev  onClick = {() => this.changePage(this.state.page-1)}/>
                     {this.renderPages()}

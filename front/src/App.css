@@ -40,3 +40,39 @@
 .test{
   border:brown;
 }
+
+.playerCard{
+  cursor:pointer;
+}
+.page{
+  margin:20px;
+}
+.blueBackground{
+  background-color:rgb(20, 53, 82);
+}
+.eaLogo{
+  width: 150px;
+}
+.bannerBack{
+  background: rgb(77,21,217);
+background: linear-gradient(177deg, rgba(77,21,217,1) 0%, rgba(147,0,142,1) 36%, rgba(196,0,189,1) 65%, rgba(50,0,93,1) 100%);
+}
+.banner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height:300px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+.descriptive{
+  font-family: 'Roboto Mono', monospace
+}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+.propertyText{
+  font-family: 'Merriweather', serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+.titleTexts{
+  font-family: 'Ubuntu', sans-serif;
+}

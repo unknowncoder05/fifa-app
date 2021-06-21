@@ -18,6 +18,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - DJANGO_SECRET=${DJANGO_SECRET}
       - DB_NAME=${DB_NAME}
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
