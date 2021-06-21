@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import Players from './components/pages/Players'
 import Teams from './components/pages/Teams'
 import AuthKey from './components/layout/AuthKey'

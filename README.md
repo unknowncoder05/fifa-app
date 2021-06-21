@@ -1,6 +1,15 @@
-# Backend
+# Docker Container
 ## Launch
+```sh
+docker compose
+```
 
+# Backend
+## launch
+
+```sh
+bash deploy.sh
+```
 
 ## make migrations 
 ```py

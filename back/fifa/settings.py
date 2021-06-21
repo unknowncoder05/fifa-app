@@ -162,7 +162,7 @@ if ENVIRONMENT == 'DEV':
             'USER': os.environ['DB_USERNAME'],
             'PASSWORD': os.environ['DB_PASSWORD'],
             'HOST': os.environ['DB_HOSTNAME'],
-            'PORT': os.environ['DB_PORT'],
+            'PORT': int(os.environ['DB_PORT']),
         }
     }
     ALLOWED_HOSTS = ['*']

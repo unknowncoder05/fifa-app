@@ -1,6 +1,6 @@
 from database import Connector
 from extract import extract
 import os
-credentials = "dbname={} user={} password={} host={}".format(os.environ["DB_NAME"],os.environ["DB_USER"],os.environ["DB_PASSWORD"],os.environ["DB_HOST"])
+credentials = "dbname={} user={} password={} host={}".format(os.environ["DB_NAME"],os.environ["DB_USERNAME"],os.environ["DB_PASSWORD"],os.environ["DB_HOSTNAME"])
 db = Connector(credentials)
-extract(db)
+extract(db,10)

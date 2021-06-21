@@ -1,0 +1,54 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  back:
+    build: back
+    command: "bash /code/deploy.sh"
+    volumes:
+      - ./back/:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOSTNAME=${DB_HOSTNAME}
+      - DB_PORT=${DB_PORT}
+      - API_KEY_NAME=${API_KEY_NAME}
+      - API_KEY=${API_KEY}
+    depends_on:
+      - db
+  extract:
+    build: extractor
+    command: "python main.py"
+    volumes:
+      - ./extractor/:/code
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOSTNAME=${DB_HOSTNAME}
+      - DB_PORT=${DB_PORT}
+    depends_on:
+      - back
+      - db
+  front:
+    build: front
+    command: npm start
+    volumes:
+      - './front/:/front'
+      - '/front/node_modules'
+    stdin_open: true
+    ports:
+      - 3000:3000
+    depends_on:
+      - back

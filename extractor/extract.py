@@ -8,7 +8,7 @@ def process_players(res, db, names=[]):
             names.append(x["name"])
             players.append((x["name"], x["position"],
                            x["nation"]["name"], x["club"]["name"]))
-    print(players[0][0])
+    #print(players[0][0])
     db.new_players(players)
     return names
 

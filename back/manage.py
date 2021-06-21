@@ -6,7 +6,10 @@ import sys
 import dotenv
 
 def main():
-    dotenv.read_dotenv()
+    try:
+        dotenv.read_dotenv()
+    except Exception as e:
+        print(e)
 
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fifa.settings')
