@@ -93,7 +93,7 @@ class TeamPaginator extends Component {
             return ""
         return (
             <div>
-                <Pagination className="blueBackground">
+                <Pagination >
                     <Pagination.First onClick = {() => this.changePage(1)}/>
                     <Pagination.Prev  onClick = {() => this.changePage(this.state.page-1)}/>
                     {this.renderPages()}
